@@ -2,6 +2,29 @@
 <search> 
   
     
+    <entry>
+      <title>快速排序算法简析</title>
+      <link href="/2018/08/21/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90/"/>
+      <url>/2018/08/21/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90/</url>
+      <content type="html"><![CDATA[<p>快速排序是对冒泡排序的一种改进。它的基本思想是：通过一趟排序将待排记录分割成独立的两部分其中一部分记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。</p><p> 假设待排序的序列为{a[l],a[l+1],a[l+2],…,a[r]},首先任意选取一个记录（通常可选中间一个记录作为枢轴或支点），然后重新排列其余记录，将所有关键字小于它的记录都放在左子序列中，所有关键字大于它的记录都放在右子序列中。由此可以将该“支点”记录所在的位置mid作分界线，将序列分割成两个子序列和。这个过程一趟快速排序（或一次划分）。</p><p> 一趟快速排序的具体做法是：附设两个指针i和j，它们的初始值分别为1和r，设枢轴记录取mid，则首先从j所指位置起向前搜索，找到第一个关键字小于mid的记录，然后从i所指位置起向后搜索，找到第一个关键字大于mid的记录，将他们互相交换，重复这两步直至i&gt;j为止。</p><p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(p&gt;=q) <span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">int</span> key=a[p];</span><br><span class="line"><span class="keyword">int</span> i=p,j=q;</span><br><span class="line"><span class="keyword">while</span>(i&lt;j)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">while</span>(a[j]&gt;=key&amp;&amp;i&lt;j) j--;</span><br><span class="line"><span class="keyword">if</span>(i&lt;j) a[i++]=a[j];</span><br><span class="line"><span class="keyword">while</span>(a[i]&lt;=key&amp;&amp;i&lt;j) i++;</span><br><span class="line"><span class="keyword">if</span>(i&lt;j) a[j--]=a[i];</span><br><span class="line">&#125;</span><br><span class="line">a[i]=key;</span><br><span class="line">qsort(p,i<span class="number">-1</span>);</span><br><span class="line">qsort(i+<span class="number">1</span>,q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 排序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
   
   
 </search>
