@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>数的计数-五种解法【NOIP2001普及组】 | ThinkCity | Andy Y.&#39;s House</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="题解,递推">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Andy Y.</h5>
+          <a href="mailto:hz_yangjc@163.com" title="hz_yangjc@163.com" class="mail">
+            
+              <span>h</span>
+            
+              <span>z</span>
+            
+              <span>_</span>
+            
+              <span>y</span>
+            
+              <span>a</span>
+            
+              <span>n</span>
+            
+              <span>g</span>
+            
+              <span>j</span>
+            
+              <span>c</span>
+            
+              <span>@</span>
+            
+              <span>1</span>
+            
+              <span>6</span>
+            
+              <span>3</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/hzyangjc" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>数的计数-五种解法【NOIP2001普及组】</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">数的计数-五种解法【NOIP2001普及组】</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-21T05:24:38.000Z" itemprop="datePublished" class="page-time">
+  2018-08-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/编程/">编程</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-数的计数-五种解法【NOIP2001普及组】"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">数的计数-五种解法【NOIP2001普及组】</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-21 13:24:38" datetime="2018-08-21T05:24:38.000Z"  itemprop="datePublished">2018-08-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/编程/">编程</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p><strong><a href="https://www.luogu.org/problemnew/show/P1028" target="_blank" rel="noopener">题目链接</a></strong></p>
+<hr>
+<p>[TOC]</p>
+<hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>我们要求找出具有下列性质数的个数(包含输入的自然数 nn ):</p>
+<p>先输入一个自然数 n(n≤1000),然后对此自然数按照如下方法进行处理:</p>
+<ol>
+<li>不作任何处理;</li>
+<li>在它的左边加上一个自然数,但该自然数不能超过原数的一半;</li>
+<li>加上数后,继续按此规则进行处理,直到不能再加自然数为止.</li>
+</ol>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><p>输入格式：</p>
+<p>1 个自然数 n (n≤1000 )</p>
+<p>输出格式：</p>
+<p>1 个整数，表示具有该性质数的个数。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p>输入样例#1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+<p>输出样例#1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>满足条件的数为</p>
+<p>6，16，26，126，36，136</p>
+<hr>
+<h1 id="来，上车！"><a href="#来，上车！" class="headerlink" title="来，上车！"></a>来，上车！</h1><p>这题不难，但值得深究。</p>
+<p>是的，我想出了<strong>五种方法</strong>。</p>
+<h3 id="方法一-递归"><a href="#方法一-递归" class="headerlink" title="方法一  递归"></a>方法一  递归</h3><p>用<strong>递归</strong>，f(n)=1+f(1)+f(2)+……+f(n/2),当n较大时会超时，时间为指数级。</p>
+<p>代码-<strong>超时</strong>：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> m)</span>			 <span class="comment">//统计m所扩展出的数据个数 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	ans++;					<span class="comment">//每出现一个原数，累加器加1		</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m/<span class="number">2</span>;i++)	   <span class="comment">//左边添加不超过原数一半的自然数，作为新原数 </span></span><br><span class="line">		dfs(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	dfs(n);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法二-记忆化搜索"><a href="#方法二-记忆化搜索" class="headerlink" title="方法二  记忆化搜索"></a>方法二  记忆化搜索</h3><p>用<strong>记忆化搜索</strong>，实际上是对方法一的改进。设h[i]表示自然数i满足题意三个条件的数的个数。若用递归求解，会重复来求一些子问题。例如在求h[4]时，需要再求h[1]和h[2]的值。现在用h数组记录在记忆求解过程中得出的所有子问题的解，当遇到重复子问题时，直接使用前面记忆的结果。</p>
+<p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">1001</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">if</span>(h[m]!=<span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">					<span class="comment">//说明前面已经求得h[m]的值，直接引用即可，无需再递归 </span></span><br><span class="line">	h[m]=<span class="number">1</span>;			<span class="comment">//表示m本身是一种情况 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m/<span class="number">2</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs(i);</span><br><span class="line">		h[m]+=h[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		h[i]=<span class="number">-1</span>;	<span class="comment">//h数组初始化为-1 </span></span><br><span class="line">	dfs(n);			<span class="comment">//由顶到下记忆化递归求解 </span></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;h[n];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法三-递推"><a href="#方法三-递推" class="headerlink" title="方法三  递推"></a>方法三  递推</h3><p>用<strong>递推</strong>，用h（n）表示自然数n所能扩展的数据个数，则h（1）=1，h（2）=2，h（3）=2，h（4）=4，h（5）=4，h（6）=6，h（7）=6，h（8）=10，h（9）=10。分析以上数据，可得递推公式：<code>h(i)=1+h(1)+h(2)+···+h(i/2)</code>。此算法时间复杂度为O(n*n)。</p>
+<p>设h[i]-i按照规则扩展出的自然数个数(1≤i≤n)。下表列出了h[i]值及其方案：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i</th>
+<th style="text-align:center">h[i]</th>
+<th style="text-align:left">自然数序列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">2 12</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">3 13</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">4 14 24 124</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">5 15 25 125</td>
+</tr>
+<tr>
+<td style="text-align:center">……</td>
+<td style="text-align:center">……</td>
+<td style="text-align:left">……</td>
+</tr>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:center">$1+\sum_{k=1}^{[ \frac{i}{2}]}{h[k]}$</td>
+<td style="text-align:left">i  1i  2i  12i …</td>
+</tr>
+</tbody>
+</table>
+<p>由于1为最小非零自然数，因此1无法扩展出其他自然数。自然数i(2≤i≤n)按照规则扩展出的自然数包括i；i左边加上1；左边加上2按规则扩展出的h[2]个自然数……；由于i左邻的自然数不超过[i/2]，因此直至i左边加上h[[i/2]]个自然数（这些自然数由[i/2]按规则扩展出）为止。由此得出递推的计数公式：</p>
+<p>h[1]=1;</p>
+<p>h[i]=$1+\sum_{k=1}^{[ \frac{i}{2}]}{h[k]}$         (2≤i≤n)</p>
+<p>从1出发，按照上述公式递推至自然数n，便可得出n按规则扩展出的自然数个数h[n]。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">10001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)			<span class="comment">//按递增顺序计算扩展出的自然数个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        h[i]=<span class="number">1</span>;						<span class="comment">//扩展出的自然数包括i本身</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i/<span class="number">2</span>;j++)		<span class="comment">//i左边分别加上i···自然数[i/2]按规则扩展出</span></span><br><span class="line">        							<span class="comment">//的自然数个数</span></span><br><span class="line">        	h[i]+=h[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;h[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法四-改进方法三"><a href="#方法四-改进方法三" class="headerlink" title="方法四  改进方法三"></a>方法四  改进方法三</h3><p>对方法三的改进，定义数组s，<code>s(x)=h(1)+h(2)+···+h(x)</code>，<code>h(x)=s(x)-s(x-1)</code>，此算法的时间复杂度可降到O(n)。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">10001</span>],s[<span class="number">10001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        h[i]=<span class="number">1</span>+s[i/<span class="number">2</span>];</span><br><span class="line">        s[i]=s[i<span class="number">-1</span>]+h[i];		<span class="comment">//s是h的前缀累加和</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;h[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法五-更强的递推"><a href="#方法五-更强的递推" class="headerlink" title="方法五 更强的递推"></a>方法五 更强的递推</h3><p>还是用递推，只要作仔细分析，不难发现以下的递推公式：</p>
+<ul>
+<li>当i为奇数时，<code>h[i]=h[i-1]</code>；</li>
+<li>当i为偶数时，<code>h[i]=h[i-1]+h[i/2]</code>。</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">10001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    h[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        h[i]=h[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">            h[i]+=h[i/<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;h[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-21T05:26:33.447Z" itemprop="dateUpdated">2018-08-21 13:26:33</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/" target="_blank" rel="external">http://yoursite.com/2018/08/21/数的计数-五种解法【NOIP2001普及组】/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Andy Y.">
+            Andy Y.
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递推/">递推</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/题解/">题解</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/21/数的计数-五种解法【NOIP2001普及组】/&title=《数的计数-五种解法【NOIP2001普及组】》 — ThinkCity&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/21/数的计数-五种解法【NOIP2001普及组】/&title=《数的计数-五种解法【NOIP2001普及组】》 — ThinkCity&source=����������ǹ������� ��ĩ�յ�������ڵ���" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2018/08/21/快速排序算法简析/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">快速排序算法简析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入输出格式"><span class="post-toc-number">2.</span> <span class="post-toc-text">输入输出格式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入输出样例"><span class="post-toc-number">3.</span> <span class="post-toc-text">输入输出样例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#说明"><span class="post-toc-number">4.</span> <span class="post-toc-text">说明</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#来，上车！"><span class="post-toc-number"></span> <span class="post-toc-text">来，上车！</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法一-递归"><span class="post-toc-number">1.</span> <span class="post-toc-text">方法一  递归</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法二-记忆化搜索"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法二  记忆化搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法三-递推"><span class="post-toc-number">3.</span> <span class="post-toc-text">方法三  递推</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法四-改进方法三"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法四  改进方法三</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法五-更强的递推"><span class="post-toc-number">5.</span> <span class="post-toc-text">方法五 更强的递推</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.luogu.org" target="_blank">luogu</a>
+    </span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.github.com" target="_blank">Github</a>
+    </span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.coding.net" target="_blank">coding</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Andy Y. &copy; 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/21/数的计数-五种解法【NOIP2001普及组】/&title=《数的计数-五种解法【NOIP2001普及组】》 — ThinkCity&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/21/数的计数-五种解法【NOIP2001普及组】/&title=《数的计数-五种解法【NOIP2001普及组】》 — ThinkCity&source=����������ǹ������� ��ĩ�յ�������ڵ���" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxUlEQVR42u3a0U7DMAwFUP7/p4fEExK0u9dJxpBOnqaurDl5qI3tj494Pb7W/fXHt3V15eff/rw/uXPzwsPDwxtt/WrdP/j+F5IDuvo2P7j75+Lh4eGd4+Uv/aut3B9K8lcJKd8zHh4e3jvw2se0L/ck8ODh4eH9L16yofz6LPDg4eHhvQ+vTXCTkkFSik2e+KJaCx4eHl7Maxtg7/D5YH8PDw8Pb6Grnhdn21Q4+bU8rb/cLR4eHt4BXlImaMsTCT5Pf2cHUVRB8PDw8ErerPWVBIA8MLTNsyLY4OHh4R3jzYoCs9Gr9s720C//Y8DDw8PbxDtdOEgqq22SnVdr8fDw8E7wVjpmecM+pyYpftEYw8PDwzvAW9lEGzbyp7Q7jJB4eHh4m3hJySBJu1cOqB20ysMJHh4e3gneCmYWAFbabCtNNTw8PLy9vHxMKgkAeft/5dVfHCseHh7eVt7eplf++PX2WBQY8PDw8A7wkuZWfhyzMkHb+trQwMPDw8Nb5s0Godo2f55et+GhSKzx8PDwNvHattOuwuuspDsMJHh4eHhbeUkh9f56W6idHUp+EL/EPTw8PLwDvGTrM8auFtpwJ3h4eHhbeesBIE+4Vxpmw4EtPDw8vMO8pIuUb7dteu0ayXoydIWHh4d3gLc+BDALFe2QVpTQ4+Hh4R3jJaXYNkjM2v9Jwl200/Dw8PAO8PKhgb0Jd1vwbQ+rnonAw8PDi3mPYLUjBfnrvqXm91xWqfHw8PBewsvLCnnpNm+8zdL0IjDg4eHhlby2ZZW/lNtNtM2wdgQBDw8Pby+vDQazMal8WysJPR4eHt4ree0oQN42G1aXy2LEk2IuHh4e3h/xVooRLWzX0ePh4eG9Jy9Jr2ef8xT/STECDw8P7wBv1nxqDyX/Ng8D22oteHh4eDFv1gBrCxBt6Xb2m9tGB/Dw8PB+X59pP3Oo7yF4bgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    
+</body>
+</html>
