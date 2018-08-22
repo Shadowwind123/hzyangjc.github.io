@@ -10,7 +10,7 @@
   
   <title>
     
-      ThinkCity
+      Tags | ThinkCity
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">Home</a>
+            <a href="/" class="item-link">Home</a>
           
         </li>
       
@@ -98,7 +98,7 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">Home</a>
+              <a href="/" class="menu-link">Home</a>
             
           </li>
         
@@ -125,71 +125,84 @@
   </div>
 </header>
 
-    <main class="app-body">
+    <div id="article-banner">
+  <h2>Tags</h2>
+  <p class="post-date">标签检索</p>
+</div>
+<main class="app-body">
+  <div id="tag-cloud">
+    
+      <a class="tag2" data-name="tag-算法">算法</a>
+    
+      <a class="tag2" data-name="tag-排序">排序</a>
+    
+      <a class="tag1" data-name="tag-题解">题解</a>
+    
+      <a class="tag2" data-name="tag-递推">递推</a>
+    
+  </div>
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">数的计数-五种解法【NOIP2001普及组】</a>
-      </h2>
-      <p class="article-date">2018年8月21日</p>
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-算法">算法</h3>
       
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/21/快速排序算法简析/">快速排序算法简析</a>
+          </li>
+        </ul>
         
-  <a href="/tags#题解" >
-    <span class="tag-code">题解</span>
-  </a>
-
-  <a href="/tags#递推" >
-    <span class="tag-code">递推</span>
-  </a>
-
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-排序">排序</h3>
       
-      <div class="article-summary">
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/21/快速排序算法简析/">快速排序算法简析</a>
+          </li>
+        </ul>
         
-          题目链接
-
-[TOC]
-
-题目描述我们要求找出具有下列性质数的个数(包含输入的自然数 nn ):
-先输入一个自然数 n(n≤1000),然后对此自然数按照如下方法进行处理:
-
-不作任何处理;
-在它的左边加上一个自然数,但该自然数不能超过原数的一半;
-加上数后,继续按此规则进行处理,直到不能再 ...
-        
-      </div>
-      <a class="more" href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/08/21/快速排序算法简析/">快速排序算法简析</a>
-      </h2>
-      <p class="article-date">2018年8月21日</p>
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-题解">题解</h3>
       
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">数的计数-五种解法【NOIP2001普及组】</a>
+          </li>
+        </ul>
         
-  <a href="/tags#算法" >
-    <span class="tag-code">算法</span>
-  </a>
-
-  <a href="/tags#排序" >
-    <span class="tag-code">排序</span>
-  </a>
-
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-递推">递推</h3>
       
-      <div class="article-summary">
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">数的计数-五种解法【NOIP2001普及组】</a>
+          </li>
+        </ul>
         
-          快速排序是对冒泡排序的一种改进。它的基本思想是：通过一趟排序将待排记录分割成独立的两部分其中一部分记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。
- 假设待排序的序列为{a[l],a[l+1],a[l+2],…,a[r]},首先任意选取一个记录 ...
-        
-      </div>
-      <a class="more" href="/2018/08/21/快速排序算法简析/">Read more</a>
-    </article>
-  
-
-  
+    </div>
+    
 </main>
 
+<script>
+  (function () {
+    var url = 'http://yoursite.com/tags/index.html'
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
 
+    var tag = location.hash.replace('#', '')
+    if (tag) {
+      var tagId = "#tag-" + tag;
+      $("html, body").animate({
+        scrollTop: $(tagId).offset().top 
+      }, 400)
+    }
+  })();
+</script>
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>

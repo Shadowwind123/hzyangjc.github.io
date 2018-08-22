@@ -10,7 +10,7 @@
   
   <title>
     
-      ThinkCity
+      About | ThinkCity
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">Home</a>
+            <a href="/" class="item-link">Home</a>
           
         </li>
       
@@ -98,7 +98,7 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">Home</a>
+              <a href="/" class="menu-link">Home</a>
             
           </li>
         
@@ -125,70 +125,45 @@
   </div>
 </header>
 
-    <main class="app-body">
+    <div id="about-banner" style="background-image: url(http://file.muyutech.com/about.jpg)"></div>
+<div class="author">
+  <div class="head">
+    <img src="https://i.loli.net/2018/08/22/5b7cb57215280.jpg" />
+  </div>
+  <h3>Andy Y.</h3>
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">数的计数-五种解法【NOIP2001普及组】</a>
-      </h2>
-      <p class="article-date">2018年8月21日</p>
-      
-        
-  <a href="/tags#题解" >
-    <span class="tag-code">题解</span>
-  </a>
-
-  <a href="/tags#递推" >
-    <span class="tag-code">递推</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          题目链接
-
-[TOC]
-
-题目描述我们要求找出具有下列性质数的个数(包含输入的自然数 nn ):
-先输入一个自然数 n(n≤1000),然后对此自然数按照如下方法进行处理:
-
-不作任何处理;
-在它的左边加上一个自然数,但该自然数不能超过原数的一半;
-加上数后,继续按此规则进行处理,直到不能再 ...
-        
-      </div>
-      <a class="more" href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">Read more</a>
-    </article>
+    <p class="description">The end is always near.</p>
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/08/21/快速排序算法简析/">快速排序算法简析</a>
-      </h2>
-      <p class="article-date">2018年8月21日</p>
-      
-        
-  <a href="/tags#算法" >
-    <span class="tag-code">算法</span>
-  </a>
+  <section class="share-icons">
+    
+    
+    
+      <a class="icon-github" href="https://github.com/hzyangjc" target="_blank">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+    
+    
+    
+    
+  </section>
+</div>
 
-  <a href="/tags#排序" >
-    <span class="tag-code">排序</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          快速排序是对冒泡排序的一种改进。它的基本思想是：通过一趟排序将待排记录分割成独立的两部分其中一部分记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。
- 假设待排序的序列为{a[l],a[l+1],a[l+2],…,a[r]},首先任意选取一个记录 ...
-        
-      </div>
-      <a class="more" href="/2018/08/21/快速排序算法简析/">Read more</a>
-    </article>
-  
-
-  
-</main>
-
+<script>
+  (function () {
+    $('.header').removeClass('fixed-header')
+    var windowH = $(window).height();
+    var author = $('.author')
+    var bodyH = author.offset().top + author[0].offsetHeight + 71;
+    if (bodyH < windowH) {
+      author.css({
+        'margin-bottom': windowH - bodyH
+      })
+    }
+  })();
+</script>
 
     <div class="scroll-top">
   <span class="arrow-icon"></span>
