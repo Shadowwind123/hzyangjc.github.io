@@ -10,7 +10,7 @@
   
   <title>
     
-      快速排序算法简析 | ThinkCity
+      合唱队形【NOIP2004提高组】 | ThinkCity
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -126,8 +126,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>快速排序算法简析</h2>
-  <p class="post-date">2018-08-21</p>
+  <h2>合唱队形【NOIP2004提高组】</h2>
+  <p class="post-date">2018-08-22</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -135,22 +135,45 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>快速排序是对冒泡排序的一种改进。它的基本思想是：通过一趟排序将待排记录分割成独立的两部分其中一部分记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。</p>
-<p> 假设待排序的序列为{a[l],a[l+1],a[l+2],…,a[r]},首先任意选取一个记录（通常可选中间一个记录作为枢轴或支点），然后重新排列其余记录，将所有关键字小于它的记录都放在左子序列中，所有关键字大于它的记录都放在右子序列中。由此可以将该“支点”记录所在的位置mid作分界线，将序列分割成两个子序列和。这个过程一趟快速排序（或一次划分）。</p>
-<p> 一趟快速排序的具体做法是：附设两个指针i和j，它们的初始值分别为1和r，设枢轴记录取mid，则首先从j所指位置起向前搜索，找到第一个关键字小于mid的记录，然后从i所指位置起向后搜索，找到第一个关键字大于mid的记录，将他们互相交换，重复这两步直至i&gt;j为止。</p>
-<p>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p&gt;=q) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> key=a[p];</span><br><span class="line">	<span class="keyword">int</span> i=p,j=q;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>(a[j]&gt;=key&amp;&amp;i&lt;j) j--;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;j) a[i++]=a[j];</span><br><span class="line">		<span class="keyword">while</span>(a[i]&lt;=key&amp;&amp;i&lt;j) i++;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;j) a[j--]=a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	a[i]=key;</span><br><span class="line">	qsort(p,i<span class="number">-1</span>);</span><br><span class="line">	qsort(i+<span class="number">1</span>,q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <section class="markdown-content"><h4 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="https://www.luogu.org/problemnew/show/P1091" target="_blank" rel="noopener">题目链接</a></h4><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>N 位同学站成一排，音乐老师要请其中的( N−K )位同学出列，使得剩下的 KK 位同学排成合唱队形。</p>
+<p>合唱队形是指这样的一种队形：设K位同学从左到右依次编号为 1,2,…,K ，他们的身高分别为T1,T2,…,TK ， 则他们的身高满足T1&lt;…<ti>Ti+1&gt;…&gt;TK(1≤i≤K) 。</ti></p>
+<p>你的任务是，已知所有N位同学的身高，计算最少需要几位同学出列，可以使得剩下的同学排成合唱队形。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><ul>
+<li>输入格式：</li>
+</ul>
+<p>共二行。</p>
+<p>第一行是一个整数N(2≤N≤100) ，表示同学的总数。</p>
+<p>第二行有 n 个整数，用空格分隔，第 i 个整数 Ti(130≤Ti≤230) 是第 ii 位同学的身高(厘米)。</p>
+<ul>
+<li>输出格式：</li>
+</ul>
+<p>一个整数，最少需要几位同学出列。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入样例#1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">186 186 150 200 160 130 197 220</span><br></pre></td></tr></table></figure>
+<p>输出样例#1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
+<li>对于50％的数据，保证有 n \le 20n≤20 ；</li>
+<li>对于全部的数据，保证有 n \le 100n≤100 。</li>
+</ol>
+<hr>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>先用最长上升子序列求一遍，存在<code>high</code>数组里，再用最长下降子序列求一遍，存在<code>low</code>数组里。</p>
+<p><strong>重点：第x个人为队形中最高者时，队形的最大长度=x及其左侧的最长上升子序列长度+x及其右侧的最长下降子序列长度-1（x被算了两次）。</strong>这点理解了，题目就不难了。</p>
+<p>注意求的是出列人数，所以最后勿忘用n减。<strong>这是我连交三次都20分的原因(ಥ﹏ಥ)</strong></p>
+<p>AC code:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">101</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[MAXN];</span><br><span class="line"><span class="keyword">int</span> high[MAXN],low[MAXN];</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)						<span class="comment">//求整个序列中每个元素及其左侧的</span></span><br><span class="line">	&#123;										   <span class="comment">//最长上升子序列长度</span></span><br><span class="line">		high[i]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)</span><br><span class="line">			<span class="keyword">if</span>(a[i]&gt;a[j])</span><br><span class="line">				high[i]=max(high[i],high[j]+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;<span class="number">0</span>;i--)						<span class="comment">//求整个序列中每个元素及其右侧的</span></span><br><span class="line">	&#123;										   <span class="comment">//最长下降子序列长度</span></span><br><span class="line">		low[i]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=n;j&gt;i;j--)</span><br><span class="line">			<span class="keyword">if</span>(a[i]&gt;a[j])</span><br><span class="line">				low[i]=max(low[i],low[j]+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)						<span class="comment">//找到最长队形</span></span><br><span class="line">		ans=max(ans,high[i]+low[i]<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n-ans);						<span class="comment">//用n减！！！</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#算法" >
-    <span class="tag-code">算法</span>
+  <a href="/tags#题解" >
+    <span class="tag-code">题解</span>
   </a>
 
-  <a href="/tags#排序" >
-    <span class="tag-code">排序</span>
+  <a href="/tags#动规" >
+    <span class="tag-code">动规</span>
   </a>
 
       </div>
@@ -161,10 +184,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-    
-      <a class="nav-right" href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">
+      <a class="nav-left" href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/">
+        <span class="nav-arrow">← </span>
         
           数的计算【NOIP2001普及组】
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2018/08/22/传球游戏/">
+        
+          传球游戏【NOIP2008普及组】
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -185,7 +215,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#题目链接"><span class="toc-nav-text">题目链接</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#题目描述"><span class="toc-nav-text">题目描述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输入输出格式"><span class="toc-nav-text">输入输出格式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输入输出样例"><span class="toc-nav-text">输入输出样例</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#说明"><span class="toc-nav-text">说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#解题思路"><span class="toc-nav-text">解题思路</span></a>
     
   </div>
 </aside>
@@ -195,7 +225,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/2018/08/21/快速排序算法简析/';
+    var url = 'http://yoursite.com/2018/08/22/合唱队形/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -251,7 +281,7 @@
     var gitmentConfig = "hzyangjc";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "快速排序算法简析",
+        id: "合唱队形【NOIP2004提高组】",
         owner: "hzyangjc",
         repo: "hzyangjc.github.io",
         oauth: {
@@ -279,7 +309,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://yoursite.com/2018/08/21/快速排序算法简析/';
+  var disqus_url = 'http://yoursite.com/2018/08/22/合唱队形/';
   
   (function(){
     var dsq = document.createElement('script');

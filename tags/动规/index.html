@@ -10,7 +10,7 @@
   
   <title>
     
-      About | ThinkCity
+      ThinkCity
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -125,46 +125,53 @@
   </div>
 </header>
 
-    <div id="about-banner" style="background-image: url(http://file.muyutech.com/about.jpg)"></div>
-<div class="author">
-  <div class="head">
-    <img src="https://i.loli.net/2018/08/22/5b7cb57215280.jpg" />
-  </div>
-  <h3>Andy Y.</h3>
-  
-    <p class="description">The end is always near.</p>
-  
-  <section class="share-icons">
-    
-    
-    
-      <a class="icon-github" href="https://github.com/hzyangjc" target="_blank">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-        </span>
-      </a>
-    
-    
-    
-    
-  </section>
+    <div id="article-banner">
+  <h2>Archives</h2>
+  <p class="post-date">文章归档</p>
 </div>
+<main class="app-body" id="archives">
+  
+  
+  
+    <section class="time-section">
+  <h1 class="section-year">
+    2018
+  </h1>
+  <div class="section-list">
+    
+    
+      <div class="section-list-item">
+        <a href="/2018/08/22/传球游戏/" class="archive-title">传球游戏【NOIP2008普及组】</a>
+        <p class="archive-date">08-22</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2018/08/22/合唱队形/" class="archive-title">合唱队形【NOIP2004提高组】</a>
+        <p class="archive-date">08-22</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2018/08/21/数的计数-五种解法【NOIP2001普及组】/" class="archive-title">数的计算【NOIP2001普及组】</a>
+        <p class="archive-date">08-21</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2018/08/21/快速排序算法简析/" class="archive-title">快速排序算法简析</a>
+        <p class="archive-date">08-21</p>
+      </div>
+    
+  </div>
+</section>
+  
+</main>
 
 <script>
   (function () {
-    $('.header').removeClass('fixed-header')
-    var windowH = $(window).height();
-    var author = $('.author')
-    var bodyH = author.offset().top + author[0].offsetHeight + 71;
-    if (bodyH < windowH) {
-      author.css({
-        'margin-bottom': windowH - bodyH
-      })
-    }
+    var url = 'http://yoursite.com/tags/动规/index.html';
+    $('#article-banner').geopattern(url);
+    $('.header').removeClass('fixed-header');
   })();
 </script>
-
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
