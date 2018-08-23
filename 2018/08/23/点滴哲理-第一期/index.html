@@ -10,7 +10,7 @@
   
   <title>
     
-      牛跳房子 | Andy Y.&#39;s House
+      点滴哲理-第一期 钱声 | Andy Y.&#39;s House
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -126,8 +126,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>牛跳房子</h2>
-  <p class="post-date">2018-08-22</p>
+  <h2>点滴哲理-第一期 钱声</h2>
+  <p class="post-date">2018-08-23</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -135,42 +135,29 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Just like humans enjoy playing the game of Hopscotch, Farmer John’s cows have invented a variant of the game for themselves to play. Being played by clumsy animals weighing nearly a ton, Cow Hopscotch almost always ends in disaster, but this has surprisingly not deterred the cows from attempting to play nearly every afternoon.</p>
-<p>The game is played on an R by C grid (2 &lt;= R &lt;= 750, 2 &lt;= C &lt;= 750), where each square is labeled with an integer in the range 1..K (1 &lt;= K &lt;= R*C). Cows start in the top-left square and move to the bottom-right square by a sequence of jumps, where a jump is valid if and only if</p>
-<p>1) You are jumping to a square labeled with a different integer than your current square,</p>
-<p>2) The square that you are jumping to is at least one row below the current square that you are on, and</p>
-<p>3) The square that you are jumping to is at least one column to the right of the current square that you are on.</p>
-<p>Please help the cows compute the number of different possible sequences of valid jumps that will take them from the top-left square to the bottom-right square.</p>
-<p>就像人类喜欢跳格子游戏一样，FJ的奶牛们发明了一种新的跳格子游戏。虽然这种接近一吨的笨拙的动物玩跳格子游戏几乎总是不愉快地结束，但是这并没有阻止奶牛们在每天下午参加跳格子游戏</p>
-<p>游戏在一个R*C的网格上进行，每个格子有一个取值在1-k之间的整数标号，奶牛开始在左上角的格子，目的是通过若干次跳跃后到达右下角的格子，当且仅当格子A和格子B满足如下条件时能从格子A跳到格子B：</p>
-<p>1.B格子在A格子的严格右方(B的列号严格大于A的列号)</p>
-<p>2.B格子在A格子的严格下方(B的行号严格大于A的行号)</p>
-<p>3.B格子的标号和A格子的标号不同</p>
-<p>请你帮助奶牛计算出从左上角的格子到右下角的格子一共有多少种不同的方案</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><p>输入格式：</p>
-<p>The first line contains the integers R, C, and K.</p>
-<p>The next R lines will each contain C integers, each in the range 1..K.</p>
-<p>输出格式：</p>
-<p>Output the number of different ways one can jump from the top-left square to the bottom-right square, mod 1000000007.</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入样例#1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 4 4 </span><br><span class="line">1 1 1 1 </span><br><span class="line">1 3 2 1 </span><br><span class="line">1 2 4 1 </span><br><span class="line">1 1 1 1</span><br></pre></td></tr></table></figure>
-<p>输出样例#1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure></p>
+    <section class="markdown-content"><blockquote>
+<p>【美】 凯·黑兹其<br>夏殷棕 译<br>摘自《讽刺与幽默》2018年3月30日</p>
+</blockquote>
 <hr>
-<p>这题很多人用递归，其实递推也是可以的。</p>
-<p>反正就是4重循环大暴力。</p>
-<p>解题思路见代码<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> r,c,k;<span class="comment">//行，列，数值限定 </span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">751</span>][<span class="number">751</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[<span class="number">751</span>][<span class="number">751</span>]=&#123;<span class="number">0</span>&#125;;<span class="comment">//f[i][j]：左上f[i][j]严格左上方所有点的路径总数之和 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;r,&amp;c,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;r;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;c;j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;r;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;c;j++)<span class="comment">//要计算的点 </span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> p=<span class="number">0</span>;p&lt;i;p++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> q=<span class="number">0</span>;q&lt;j;q++)<span class="comment">//左上方的点 </span></span><br><span class="line">                    <span class="keyword">if</span>(a[i][j]!=a[p][q])<span class="comment">//审题：要求数值不同 </span></span><br><span class="line">                        f[i][j]=(f[i][j]+f[p][q])%<span class="number">1000000007</span>;<span class="comment">//勿忘mod 1000000007	</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[r<span class="number">-1</span>][c<span class="number">-1</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  纽约大街上，一名土著与友人走着，周围人山人海，汽车的喇叭声此起彼伏。突然，土著停下脚步说：“我听见了蟋蟀的叫声。”</p>
+<p>  “这么嘈杂，你怎么可能听见蟋蟀的叫声呢？”朋友不相信。土著没有争辩，径自穿过人群，来到一丛用于绿化的矮树边，蹲下身子。等他起身时，手指间真捏着一只蟋蟀。</p>
+<p>朋友难以相信自己的眼睛，说：“你的耳朵一定具有特异功能！”</p>
+<p>土著摇着脑袋说：“我的耳朵和你的一样。其实，这全在于你想听到什么。”</p>
+<p>朋友看着土著，一脸惊奇。</p>
+<p>只见土著松开手指，蟋蟀迅速逃出，落入树丛中，不见了踪影。土著又从口袋中摸出几枚硬币，随手往人行道上一扔。周围好多行人都转过头，看掉在地上的钱是不是自己的，尽管街上依旧人声鼎沸。</p>
+<p>朋友好像明白了什么。</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#题解" >
-    <span class="tag-code">题解</span>
+  <a href="/tags#生活" >
+    <span class="tag-code">生活</span>
   </a>
 
-  <a href="/tags#递推" >
-    <span class="tag-code">递推</span>
+  <a href="/tags#感悟" >
+    <span class="tag-code">感悟</span>
   </a>
 
       </div>
@@ -181,20 +168,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/08/22/传球游戏/">
+      <a class="nav-left" href="/2018/08/22/牛跳房子/">
         <span class="nav-arrow">← </span>
         
-          传球游戏【NOIP2008普及组】
+          牛跳房子
         
       </a>
     
-    
-      <a class="nav-right" href="/2018/08/23/点滴哲理-第一期/">
-        
-          点滴哲理-第一期 钱声
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -212,7 +192,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#题目描述"><span class="toc-nav-text">题目描述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输入输出格式"><span class="toc-nav-text">输入输出格式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输入输出样例"><span class="toc-nav-text">输入输出样例</span></a></li></ol>
+      <ol class="nav">none</ol>
     
   </div>
 </aside>
@@ -222,7 +202,7 @@
 
 <script>
   (function () {
-    var url = 'http://www.yjcnews.top/2018/08/22/牛跳房子/';
+    var url = 'http://www.yjcnews.top/2018/08/23/点滴哲理-第一期/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -278,7 +258,7 @@
     var gitmentConfig = "hzyangjc";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "牛跳房子",
+        id: "点滴哲理-第一期 钱声",
         owner: "hzyangjc",
         repo: "hzyangjc.github.io",
         oauth: {
@@ -306,7 +286,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://www.yjcnews.top/2018/08/22/牛跳房子/';
+  var disqus_url = 'http://www.yjcnews.top/2018/08/23/点滴哲理-第一期/';
   
   (function(){
     var dsq = document.createElement('script');
